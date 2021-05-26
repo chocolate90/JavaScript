@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /* 1미만의 랜덤 실수 */
+    var a = Math.random() * 101;
+    console.log(a);
+
+    /* 
+      parseInt() - 실수를 정수로
+      parseFloat()
+     */
+
+    var num = parseInt(a);
+    console.log(num);
+
+    var ran = parseInt(Math.random() * 101);
+
+    if(ran >= 90) {
+      console.log(ran + ": " + "A입니다.");
+    } else if (ran >= 80) {
+      console.log(ran + ": " + "B입니다.");
+    } else if (ran >= 70) {
+      console.log(ran + ": " + "C입니다.");
+    } else {
+      console.log(ran + ": " + "F입니다.");
+    }
+
+    console.log("-------------------------");
+
+    var name = "홍길동";
+
+    switch (name) {
+      case "이순신":
+          console.log("신!");
+        break;
+
+      case "홍길자":
+          console.log("자!");
+        break;
+
+      case "홍길동":
+          console.log("동!");
+        break;
+    
+      default:
+
+        break;
+    }
+
+  </script>
+
+</body>
+</html>

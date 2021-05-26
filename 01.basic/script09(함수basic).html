@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /* 함수의 호이스팅 (선언부가 아래쪽에 있더라도 미리 호출이 가능하다.) */
+    method1();
+
+    function method1() {
+
+      console.log(1);
+
+    }
+
+    method2(1, 2);
+    method2(); /* 함수의 매개변수 개수가 다르더라도 호출이 가능하다. */
+    method2(1, 2, 3);
+    
+
+    function method2(a, b) {
+      console.log("method2 호출");
+      console.log(a + b);
+    }
+
+    var result = method3(10, 20);
+    console.log(result)
+
+    function method3(a, b) {
+
+      console.log("method3 호출");
+      var sum = a + b;
+      
+      return sum; /*  */
+    }
+    
+    var c = method3; /* 변수에 함수를 저장 */
+    
+    console.log(c); /* 함수를 저장 */
+    
+    console.log(c(30 , 20)); /* 함수를 실행 */
+
+  </script>
+
+</body>
+</html>
