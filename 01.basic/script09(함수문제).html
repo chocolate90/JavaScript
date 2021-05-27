@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /* 익명함수로 변경 */
+
+    /* 문제 1 */
+    function check() {
+      alert("자바스크립트 익명함수");
+    }
+
+    /* 답 */
+    var a = function() {
+      alert("자바스크립트 익명함수")
+    }
+
+    a();
+
+    /* 문제 2 */
+    function method(a) {
+      if(a % 2 === 0) {
+        alert("짝수");
+      } else {
+        alert("홀수");
+      }
+    }
+
+    /* 답 */
+    var n = function (a) {
+      if(a % 2 === 0) alert("짝수");
+      else alert("홀수");
+    }
+
+    n(3);
+
+    /* 이름 국어 수학 영어를 받아서 "이름 님의 평균은: xxx" 문자열을 반환하는 함수를 익명함수로 선언 */
+
+    var avg = function(name, kor, math, eng) {
+      alert( name + "님의 평균은: " + (kor + math + eng) / 3);
+    }
+
+    avg("이지은", 90, 95, 98);
+
+    
+
+  </script>
+
+</body>
+</html>

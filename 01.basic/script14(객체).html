@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    var people = {
+      name: "이지은",
+      age: 20,
+      arr: [1, 2, 3, 4, 5]
+    };
+
+    /* JS의 객체에 접근하는 방법 . */
+    console.log(people);
+    console.log(people.name);
+    console.log(people.age);
+    console.log(people.arr);
+    console.log(people.arr[2]);
+
+    /* JS의 객체에 접근하는 방법2 ["키"] */
+
+    console.log(people["name"]);
+    console.log(people["age"]);
+    console.log(people["arr"]);
+    console.log(people["arr"][2]);
+
+    console.log("------------------------------")
+
+    var exam = {
+      kor: 80,
+      eng: 60,
+      math: 90
+    };
+
+    var lee = {
+      name: "이지은",
+      exam: exam
+    };
+
+    console.log(lee.name);
+    console.log(lee.exam);
+    console.log(lee.exam.kor);
+
+    console.log(lee["name"]);
+    console.log(lee["exam"]);
+    console.log(lee["exam"]["kor"]);
+
+    console.log("-----------------------------")
+
+    /* 중첩 for문으로 subject에 있는 값을 전부 출력 */
+    var list = [{
+        name: "이지은",
+        age: 20,
+        subject: ["java", "jsp", "js"],
+        birth: 20020526
+      },
+      {
+        name: "아이유",
+        age: 20,
+        subject: ["css", "DB"],
+        birth: 20020526
+      }
+    ];
+
+    for(var i = 0; i < list.length; i++) {
+      for(var j = 0; j < list[i].subject.length; j++) {
+        console.log(list[i].subject[j]);
+      }
+    }
+
+    var obj = {
+      age : 10,
+      func : function() {
+        console.log("func");
+      }
+    }
+
+    console.log(obj.age);
+    obj.func();
+
+
+
+  </script>
+
+</body>
+
+</html>

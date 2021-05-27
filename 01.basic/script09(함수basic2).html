@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+/* 
+    function method1() {
+      console.log(1);
+    }
+
+    var a = method1;
+
+    a();
+ */
+
+    /* 익명함수 (호이스팅 불가) */
+    var a = function() {
+      console.log("익명함수");
+    };
+
+    a();
+
+    var b = function(i, j) {
+      console.log("익명함수1");
+      return i + j;
+    }
+
+    console.log(b(5, 5));
+
+    /* 
+      람다식 (화살표 함수 ES6) 
+      리턴값이 1개라면 {}는 생략이 가능      
+    */
+
+    var arrow = (a, b) => a + b;
+
+    console.log(arrow(10, 20));
+
+    var arrow1 = (x) => {
+      var y = x*10;
+      return y;
+    }
+
+    console.log(arrow1(10));
+
+  </script>
+
+</body>
+</html>
