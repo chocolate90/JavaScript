@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <p id="word">단어를 선택하세요</p>
+
+  <select id="selector" onchange="change(this)">
+    <option>선택</option>
+    <option>hello</option>
+    <option>안녕하세요</option>
+    <option>你好</option>
+  </select>
+
+  <script>
+
+    function change(a) {
+      if(a.value === "hello") {
+        word.innerHTML = "영어 입니다.";
+      } else if(a.value === "안녕하세요") {
+        word.innerHTML = "한국어 입니다.";
+      } else if(a.value === "你好") {
+        word.innerHTML = "중국어 입니다.";
+      } else {
+        word.innerHTML = "단어를 선택하세요.";
+      }
+    }
+    
+/* 
+    var word = document.getElementById("word");
+    var selector = document.getElementById("selector");
+
+    기본
+
+    selector.onchange = function() {
+      if(selector.value === "hello") {
+        word.innerHTML = "영어 입니다.";
+      } else if(selector.value === "안녕하세요") {
+        word.innerHTML = "한국어 입니다.";
+      } else if(selector.value === "你好") {
+        word.innerHTML = "중국어 입니다.";
+      } else {
+        word.innerHTML = "단어를 선택하세요";
+      }
+    }
+
+    표준
+
+    selector.addEventListener("change", function() {
+      if(selector.value === "hello") {
+        word.innerHTML = "영어 입니다.";
+      } else if(selector.value === "안녕하세요") {
+        word.innerHTML = "한국어 입니다.";
+      } else if(selector.value === "你好") {
+        word.innerHTML = "중국어 입니다.";
+      } else {
+        word.innerHTML = "단어를 선택하세요";
+      }
+    })
+ */
+
+  </script>
+  
+</body>
+
+</html>
