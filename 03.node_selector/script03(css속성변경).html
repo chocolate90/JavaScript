@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2>JS로 CSS변경하기</h2>
+
+  <div>
+    <ul class="box">
+      <li>홍길동</li>
+      <li>이순신</li>
+      <li>신사임당</li>
+    </ul>
+  </div>
+  <button type="button" id="btn">색상과 배경색 변경하기</button>
+
+  <script>
+    var btn = document.getElementById("btn");
+    btn.addEventListener("click", function() {
+      var li = document.querySelectorAll(".box > li");
+
+      for(var i = 0; i < li.length; i++) {
+        li[i].style.color = "#FF0000";
+        li[i].style.backgroundColor = "#d2d2d2"; 
+      }
+
+      /* 
+      li[0].style.color = "#FF0000";
+      li[1].style.color = "#FF0000";
+      li[2].style.color = "#FF0000";
+      */
+
+      /* background-color 처럼 - 이 들어간 속성은 카멜표기법으로 대체 */
+      /* 
+      li[0].style.backgroundColor = "#d2d2d2"; 
+      li[1].style.backgroundColor = "#d2d2d2";
+      li[2].style.backgroundColor = "#d2d2d2";
+      */
+    });
+  </script>
+
+</body>
+</html>
