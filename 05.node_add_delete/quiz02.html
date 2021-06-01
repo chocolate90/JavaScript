@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h1>할 일 목록 만들기</h1>
+
+  <input type="text" placeholder="당신의 이름을 적으세요." id="name">
+  <button type="button" id="check">확인</button><br>
+  <input type="text" placeholder="당신의 할 일을 적으세요." id="todo">
+  <button type="button" id="add">확인</button>
+  
+  <ul id="list">
+
+  </ul>
+
+  <script>
+
+    var add = document.getElementById("add");
+
+    add.onclick = function() {
+
+      var list = document.getElementById("list");
+
+      var li = document.createElement("li");
+      var todo = document.getElementById("todo");
+
+      var button = document.createElement("button");
+
+      li.innerHTML = todo.value;
+      button.innerHTML = "x";
+
+      li.appendChild(button);
+      list.appendChild(li);
+      
+
+
+    }
+
+  </script>
+
+</body>
+</html>
