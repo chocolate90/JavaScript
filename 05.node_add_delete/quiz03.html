@@ -27,6 +27,8 @@
 
   </ul>
 
+  
+
   <script>
 
     var nameForm = document.querySelector(".nameForm");
@@ -57,13 +59,21 @@
       var todo = document.getElementById("todo");
 
       var button = document.createElement("button");
+      var button1 = document.createElement("button");
+      var button2 = document.createElement("button");
 
       li.innerHTML = todo.value;
       button.innerHTML = "x";
+      button1.innerHTML = "↑";
+      button2.innerHTML = "↓";
 
-      button.addEventListener("click", deleteTodo)
+      button.addEventListener("click", deleteTodo);
+      button1.addEventListener("click", up);
+      button2.addEventListener("click", down);
 
       li.appendChild(button);
+      li.appendChild(button1);
+      li.appendChild(button2);
       list.appendChild(li);
 
     }
@@ -76,7 +86,51 @@
         x 버튼 클릭스 부모요소인 li를 삭제 해야한다.
       */
 
-      console.log(1);
+      event.target.parentElement.remove();
+      
+    }
+
+    function up() {
+
+      var list = document.getElementById("list");
+      var current = event.target.parentElement;
+      var previous = current.previousElementSibling;
+
+      console.log(current);
+      console.log(previous);
+
+      if(previous === null) {
+        alert("첫번째 행입니다.");
+        return;
+      }
+
+      if(confirm("이동하시겠습니까?")) {
+
+        list.insertBefore(current, previous);
+
+      }
+
+      
+    }
+
+    function down() {
+
+      var list = document.getElementById("list");
+      var current = event.target.parentElement;
+      var next = current.nextElementSibling;
+
+      console.log(current);
+      console.log(next);
+
+      if(next === null) {
+        alert("마지막 행입니다.");
+        return;
+      }
+
+      if(confirm("이동하시겠습니까?")) {
+        list.insertBefore(next, current);
+      }
+
     }
 
   </script>
