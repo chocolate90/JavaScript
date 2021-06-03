@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    tr, td, th {
+      border: 1px solid #777;
+    }
+
+  </style>
+
+</head>
+<body>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>내용</th>
+        <th>삭제</th>
+      </tr>
+    </thead>
+    <tbody class="tableList">
+      <tr class="tList">
+        <td>1</td>
+        <td>첫글</td>
+        <td>hello world</td>
+        <td><button type="button">삭제</button></td>
+      </tr>
+      <tr class="tList">
+        <td>2</td>
+        <td>두번째 글</td>
+        <td>hello world</td>
+        <td><button type="button">삭제</button></td>
+      </tr>
+      <tr class="tList">
+        <td>3</td>
+        <td>세번째 글</td>
+        <td>hello world</td>
+        <td><button type="button">삭제</button></td>
+      </tr>
+      <tr class="tList">
+        <td>4</td>
+        <td>네번째 글</td>
+        <td>hello world</td>
+        <td><button type="button">삭제</button></td>
+      </tr>
+      <tr class="tList">
+        <td>5</td>
+        <td>다섯번째 글</td>
+        <td>hello world</td>
+        <td><button type="button">삭제</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+
+    var tList = document.querySelectorAll(".tList");
+
+    for(var i = 0; i < tList.length; i++) {
+
+      tList[i].onclick = function() {
+
+        if(event.target.tagName !== "BUTTON") {
+          return;
+        } else {
+          event.target.parentElement.parentElement.remove();
+        }
+      }
+
+    }
+
+    // var tableList = document.querySelector(".tableList");
+    
+
+    // tableList.onclick = function() {
+
+
+    //   if(event.target.tagName !== "BUTTON") {
+    //     return;
+    //   } else {
+    //     event.target.parentElement.parentElement.remove();
+    //   }
+
+      
+
+    // }
+
+  </script>
+
+</body>
+</html>

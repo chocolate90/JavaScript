@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h3>이벤트 위임</h3> <!-- 부모에 이벤트를 걸어놓으면 자식 태그에도 자동으로 이벤트가 전파되는 특징입니다. -->
+  
+  <ul class="parent">
+    <li>1. 아이유</li>
+    <li>2. 지호</li>
+    <li>3. 태연</li>
+    <li>4. 아이린</li>
+    <li>5. 우기</li>
+  </ul>
+
+  <p class="result"></p>
+
+  <script>
+
+    var result = document.querySelector(".result");
+    var parent = document.querySelector(".parent");
+
+    parent.onclick = function() {
+
+      /* 
+      이벤트 위임방식을 사용할 때 부모를 클릭해도 적용되는 문제가 있어서
+      자식 태그가 아니면 종료하는 방법으로 이벤트를 종료한다.
+      */
+     
+      console.log(event.target.tagName);
+      console.log(event.target); /* 이벤트가 적용된 타겟 */
+      console.log(event.currentTarget); /* 실제 이벤트가 걸려있는 위치 */
+      
+      if(event.target.tagName !== "LI") return;
+
+      result.innerHTML = event.target.innerHTML;
+
+    }
+
+  </script>
+
+</body>
+</html>

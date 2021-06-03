@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    img {
+      width: 100px;
+    }
+
+  </style>
+
+</head>
+<body>
+  
+  <h3>다중 이벤트 처리</h3>
+
+  <img src="img/1.jpg" alt="봄">
+  <img src="img/2.jpg" alt="여름">
+  <img src="img/3.jpg" alt="가을">
+  <img src="img/4.jpg" alt="겨울"><br>
+
+  결과<br>
+  <img src="" class="change">
+
+  <script>
+
+    var change = document.querySelector(".change");
+    var img = document.querySelectorAll("img");
+
+    for(var i = 0; i < img.length; i++) {
+
+      img[i].onclick = function(event) {
+
+        change.src = event.target.src;
+        change.style.width = "200px";
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
