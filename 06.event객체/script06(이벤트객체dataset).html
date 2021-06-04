@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <ul class="nameList">
+    <li><a href="#" data-info='{"id" : "iu", "age" : "20"}'>아이유</a></li>
+    <li><a href="#" data-info='{"id" : "ty", "age" : "21"}'>태연</a></li>
+    <li><a href="#" data-info='{"id" : "jh", "age" : "18"}'>지호</a></li>
+    <li><a href="#" data-info='{"id" : "ch", "age" : "15"}'>츄</a></li>
+  </ul>
+
+  <script>
+
+    var nameList = document.querySelector(".nameList");
+
+    nameList.onclick = function() {
+      event.preventDefault();
+
+      if(event.target.tagName !== "A") return;
+
+      /* data-xx로 저장한 속성은 dataset의 xx값으로 저장된다. */
+      console.log(event.target.dataset.info);
+
+      var data = JSON.parse(event.target.dataset.info);
+      console.log(data);
+
+    }
+
+  </script>
+
+</body>
+</html>
