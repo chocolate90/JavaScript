@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" class="popup"> 새창 열기 </button>
+    
+    <script>
+        var popup = document.querySelector(".popup");
+        popup.onclick = function() {
+            // window.open("주소", "별칭", "속성1, 속성2, ...")
+            // window.open("https://www.naver.com");
+            // window.open("https://www.naver.com", "네이버창", "width=300, height=300, left=100, top=100")
+            //top, left 등 위치 속성은 팝업창이 뜨는 위치를 조정
+
+
+            //문서 내의 다른 파일을 연결 할 수 도 있음
+            window.open("../07.DOM/script01(form_object).html", "팝업창", "width=300, height=500, left=200, top=200")
+
+
+            //현재 창을 끄고 싶다면 window.close() 지금 이 함수 안에 적으면 현재창 끄고 팝업창 띄움
+        }
+    </script>
+</body>
+</html>

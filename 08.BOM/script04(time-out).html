@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>3초 뒤에 타임함수가 실행되는데 이 버튼을 누르면 실행되지 않습니다</h3>
+    <button type="button" class="stopTime">스탑</button>
+
+    <script>
+        //n초뒤에 실행시키는 함수 setTimeout
+        // var stop = setTimeout(function() {
+        //     alert("hello world");
+        // }, 5000);
+
+        // var stopTime = document.querySelector(".stopTime");
+        // stopTime.onclick = function() {
+        //     clearTimeout(stop);
+
+        // }
+
+        //setTimeout의 실행함수에 매개변수를 주고싶다면?
+        // setTimeout (test("hello world"), 3000);
+
+        // function test(text) {
+        //     return function() {
+        //         alert(text);
+        //     }
+        // }
+    </script>
+
+    <script>
+        // for(var i = 1; i <= 4; i++) {
+
+        //     setTimeout(function() {
+        //         alert(i);
+        //     }, 1000);
+        // }
+
+        //위와 같이 작성하면 alert(i)를 넣었으므로 1~4 순서대로 alert창에 나와야 하지만 5만 4번 뜸 왜? 클로저 때문에
+        //setTimeout을 실행할 때 i값은 이미 5까지 가있음 그래서 5만 4번 뜸
+
+        //위와 같은 문제를 해결하려면 아래와 같이 (즉시실행) 함수로 감싸서  
+
+        for(var i = 1; i <= 4; i++) {
+
+            (function() { 
+                setTimeout(function() {
+                    alert(i);
+                }, 1000);
+            })(i);
+
+        }
+        
+    </script>
+</body>
+</html>

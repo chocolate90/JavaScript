@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bgImg {
+            animation: fadeIn 1s linear;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            } to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="slide">
+        <img src="img/slide1.jpg" class="bgImg">
+    </div>
+
+    <script>
+        var num = 1; 
+
+        function changeImg() {
+            //img를 생성하고 조립
+            var img = document.createElement("img")
+            img.src = "img/slide" + ++num + ".jpg"; //img 바꿔서 태그 생성
+            img.classList.add("bgImg"); //img 바꿔서 생성한 태그에 클래스 이름 주기 (기존 형식과 동일하게)
+            //기존 이미지 삭제
+            var slide = document.querySelector(".slide");
+            slide.firstElementChild.remove(); // 기존 img 태그 지우기
+            //이미지 추가
+            slide.appendChild(img);
+            //이미지가 1~4번까지 있기 때문에 num 값이 4 가 되면 초기화를 해줘야 한다
+            if(num == 4) num = 1;
+        }
+
+        //즉시 실행 함수, 위에서부터 내려오다 만나는 순간 바로 실행
+        (function() {
+            setInterval(changeImg, 3000)
+
+        })();
+
+    </script>
+</body>
+</html>

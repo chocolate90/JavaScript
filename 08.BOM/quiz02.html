@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0; padding: 0;}
+
+        .bgImg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation: fadeIn 0.5s linear;
+        }
+
+        h2, .clock {color:white};
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            } to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body data-img='{"1": "img/1.jpg", "2": "img/2.jpg", "3": "img/3.jpg", "4": "img/4.jpg"}'>
+    <!--배경을 널을 이미지 태그는 아래의 형식과 같이 -->
+    <!-- <img src="img/1.jpg" class="bgImg"> -->
+    
+    <div>
+        <h2>타이머</h2>
+        <h2 class="clock">00:00:00</h2>
+    </div>
+
+    
+    <!-- 
+        1. body 아래에 있는 데이터셋을 이용해서 10초마다 배경을 바꾸는 작업
+        2. 타이머 아래에 1초마다 현재시간을 바꾸는 작업
+        데이터세트의 길이를 확인하는 문법은: 
+     -->
+
+     <script>
+         /*시간 처리 함수*/
+
+         var clock = document.querySelector(".clock"); //h2에 innerHTML로 시간 값을 넣어주기 위해 class명을 주고 변수를 쿼리셀렉터로 받아온다
+          
+         function createTime() {
+             var date = new Date(); //현재 날짜
+             var hour = date.getHours();
+             var min = date.getMinutes();
+             var second = date.getSeconds();
+            //  console.log(hour, min, second);
+            var time = (hour < 10 ? "0"+hour : hour) + ":" + 
+                       (min < 10 ? "0"+min : min) + ":" + 
+                       (second < 10 ? "0"+second : second);
+                       
+            clock.innerHTML = time;
+         }
+
+         /*이미지 처리 함수*/
+         var count = 0; //dataImg 키값 순서 변수화
+         var dataImg = JSON.parse(document.body.dataset.img); //JSON.parse를 통해 문자열을 객체 형태로 바꿔 사용할 수 있는 값으로!
+        // console.log(dataImg);
+        // 
+         function createImg() {
+            var img = document.createElement("img");
+            count++;
+            img.src = dataImg[count]; //dataImg 안에 들어있는 1번 키 값을 가져오기 위함;
+            img.classList.add("bgImg");
+
+            document.body.appendChild(img);
+            
+            //Object.keys(객체) ; 객체의 키를 봅아서 배열로 반환하는 문법 
+            if(count == Object.keys(dataImg).length) count = 0; 
+         }
+
+         (function() {
+            createTime();
+            setInterval(createTime, 1000);
+            createImg();
+            setInterval(createImg, 3000);
+         })();
+
+
+     </script>
+
+    
+</body>
+</html>
