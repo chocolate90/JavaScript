@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h2>서울시 강남구 공공wifi 위치정보</h2>
+
+  <script>
+
+   /*  fetch("http://openapi.seoul.go.kr:8088/776468566663686f383446576c5a45/json/TbPublicWifiInfo_GN/1/5/")
+      .then(function(response) {
+
+        if(response.status != 200) {
+          alert("네트워크상 오류가 발생했습니다. 다시 시도해주세요.");
+        } else {
+          return response.json();
+        }
+
+      })
+      .then(function(jsonData) {
+
+        var data = jsonData.TbPublicWifiInfo_GN.row;
+
+        console.log(data);
+
+        for(var i = 0; i < data.length; i++) {
+
+          var lat = data[i].LAT;
+          var lnt = data[i].LNT;
+          var addr = data[i].X_SWIFI_ADRES1;
+          var num = data[i].X_SWIFI_MGR_NO;
+
+          console.log(lat, lnt, addr, num);
+        }
+
+        
+
+      }); */
+
+      function getFetch() {
+
+        fetch("http://openapi.seoul.go.kr:8088/776468566663686f383446576c5a45/json/TbPublicWifiInfo_GN/1/1000/")
+          .then(function(response) {
+
+            if(response.status != 200) {
+              alert("네트워크상 오류가 발생했습니다. 다시 시도해주세요.");
+              return;
+            } else {
+              return response.json();
+            }
+
+          })
+          .then(function(text) {
+
+            var list = text.TbPublicWifiInfo_GN.row;
+
+            for(var i = 0; i < list.length; i++) {
+
+              var lat = list[i].LAT;
+              var lnt = list[i].LNT;
+              var addr = list[i].X_SWIFI_ADRES1;
+
+
+            }
+
+          });
+
+      }
+
+      (function() {
+
+        getFetch();
+
+      })();
+
+  </script>
+
+</body>
+</html>

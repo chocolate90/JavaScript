@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="userId"></div>
+  <div class="userName"></div>
+
+  <button type="button" onclick="ajax();">ajax호출</button>
+
+  <script>
+
+    function ajax() {
+
+      // fetch("hi.json").then(function (response) {
+
+      //   // console.log(response.json());
+
+      //   response.json().then(function(data) {
+
+      //     // console.log(data);
+
+      //     document.querySelector(".userId").innerHTML =  data.userId;
+      //     document.querySelector(".userName").innerHTML = data.userName;
+
+      //   });
+
+      // });
+
+      fetch("hi.json")
+        .then(function(response) {
+
+          return response.json();
+
+        })
+        .then(function(data) {
+          console.log(data);
+        });
+      
+      
+
+    }
+
+  </script>
+
+</body>
+
+</html>

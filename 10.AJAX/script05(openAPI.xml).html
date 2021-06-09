@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2>서울시 강남구 공공wifi 위치정보 xml로 얻어오기</h2>
+
+  <script>
+
+    function getFetch() {
+
+      fetch("http://openapi.seoul.go.kr:8088/776468566663686f383446576c5a45/xml/TbPublicWifiInfo_GN/1/1000/")
+        .then(function(response) {
+
+          console.log(response);
+
+          if(response.status != 200) {
+            alert("네트워크상 오류가 발생했습니다. 다시 시도해주세요.");
+            return;
+          } else {
+            return response.text();
+          }
+
+        })
+        .then(function(text) {
+
+          /* 
+            text문서를 -> xml문서로변경
+            DOMParser() 객체를 이용
+          */
+
+          // var dom = new DOMParser();
+
+          // var result = dom.parseFromString(text, "text/xml"); /* 파싱할 문자열, 파싱할 형태 */
+
+          // console.log(result);
+
+          return new DOMParser().parseFromString(text, "text/xml");
+
+        })
+        .then(function(data) {
+
+          var list = data.querySelectorAll("row");
+
+          for(var i = 0; i < list.length; i++) {
+
+            var addr = list[i].querySelector("X_SWIFI_ADRES1").innerHTML
+            var addr2 = list[i].querySelector("X_SWIFI_ADRES2").innerHTML
+            var lat = list[i].querySelector("LAT").innerHTML
+            var lnt = list[i].querySelector("LNT").innerHTML
+
+            console.log(addr, addr2, lat, lnt);
+
+          }
+
+
+        });
+      
+    }
+
+    (function() {
+
+      getFetch();
+
+    })();
+
+  </script>
+
+</body>
+</html>
